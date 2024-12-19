@@ -70,7 +70,7 @@ bool Graph::BlockNameExistsInGraph(std::string blockName)
         if (iterName == blockName)
         {
             exists = true;
-			break; //breaking once block is found which reduces loop time
+	    break; //breaking once block is found which reduces loop time
         }
     }
     return exists;
@@ -91,14 +91,14 @@ std::string Graph::GetUniqueBlockNameInGraph(Block* block)
     {
         if (BlockNameExistsInGraph(potentialName))
         {
-			std::ostringstream s;
+	    std::ostringstream s;
             s << potentialName << count;
             potentialName = s.str();
             count++;
         }
         else
         {
-			foundUniqueName = true;
+	    foundUniqueName = true;
         }
     }
     return potentialName;
