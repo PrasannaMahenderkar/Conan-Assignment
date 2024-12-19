@@ -15,10 +15,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Add the source files to the library
-add_library(graph SHARED STATIC
+add_library(graph STATIC
     src/graph.cpp
 )
-
+#add_library(graph SHARED #as static lib with same name as .so cannot be created again. either of them can be created or need to use different name
+ #   src/graph.cpp 
+#)
 # Optionally, specify the header files for installation
 install(DIRECTORY include/ DESTINATION include)
 
