@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <graph.h>
+#include <../../graph/include/graph.h>
 
 static const int s_blockQuantity = 1000;
 static const int s_attributesPerBlock = 250;

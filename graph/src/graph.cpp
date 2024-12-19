@@ -1,4 +1,5 @@
 #include <graph.h>
+#include <algorithm> 
 
 Block::Block() 
 { 
@@ -47,13 +48,10 @@ std::list<Block*> Graph::GetBlocksWithAttribute(std::string attribute)
     for (Block* b : m_blocks)
     {
         std::list<std::string> attributes = b->GetAttributes();
-        for (std::string s : attributes)
+        if(std::find(attributes.begin(), attributes.end(), attribute) != attributes.end())
         {
-            if (s == attribute)
-            {
-                blocksWithAttribute.push_back(b);
-                break;
-            }
+            blocksWithAttribute.push_back(b);
+            break;
         }
     }
     return blocksWithAttribute;
@@ -63,14 +61,15 @@ std::list<Block*> Graph::GetBlocksWithAttribute(std::string attribute)
 bool Graph::BlockNameExistsInGraph(std::string blockName)
 {
     bool exists = false;
+  
     for (auto i : m_blocks) // improved tthis
     {
-        //Block* iterBlock = *i;
+        Block* iterBlock = i;
         std::string iterName = i->GetName();
         if (iterName == blockName)
         {
-            exists = true;
-	    break; //breaking once block is found which reduces loop time
+           exists = true;
+	       break; //breaking once block is found which reduces loop time
         }
     }
     return exists;
@@ -91,14 +90,15 @@ std::string Graph::GetUniqueBlockNameInGraph(Block* block)
     {
         if (BlockNameExistsInGraph(potentialName))
         {
-	    std::ostringstream s;
+	        std::ostringstream s;
             s << potentialName << count;
             potentialName = s.str();
             count++;
         }
         else
         {
-	    foundUniqueName = true;
+	        foundUniqueName = true;
+            break;
         }
     }
     return potentialName;

@@ -15,10 +15,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Add the source files to the library
-add_library(clock SHARED
+add_library(clock SHARED STATIC
     src/clock.cpp
 )
 
+target_link_libraries(clock PUBLIC graph)
 # Optionally, specify the header files for installation
 install(DIRECTORY include/ DESTINATION include)
 

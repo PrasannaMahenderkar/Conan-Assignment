@@ -15,7 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Add the source files to the library
-add_library(graph SHARED
+add_library(graph SHARED STATIC
     src/graph.cpp
 )
 
