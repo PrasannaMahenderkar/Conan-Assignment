@@ -1,0 +1,2 @@
+/usr/bin/ar qc libclock.a  CMakeFiles/clock.dir/src/clock.cpp.o
+/usr/bin/ranlib libclock.a

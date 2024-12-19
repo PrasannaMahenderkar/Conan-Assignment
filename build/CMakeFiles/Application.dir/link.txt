@@ -1,0 +1,1 @@
+/usr/bin/g++     CMakeFiles/Application.dir/main.cpp.o  -o Application  graph/libgraph.a clock/libclock.a graph/libgraph.a 
